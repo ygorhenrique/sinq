@@ -34,16 +34,12 @@ module.exports = function(){
         var groupIndex = fn(m)
 
         if(groupedItems.keys.indexOf(groupIndex) == -1) {
-
           groupedItems[groupIndex] = {}
-          groupedItems[groupIndex].group = []
-          groupedItems[groupIndex].group.push(m)
-
+          groupedItems[groupIndex] = []
           groupedItems.keys.push(groupIndex)
-
-        }else{
-          groupedItems[groupIndex].group.push(m)
         }
+
+        groupedItems[groupIndex].push(m)
       })
 
       return groupedItems
