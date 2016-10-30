@@ -1,5 +1,5 @@
 var assert = require('assert');
-require('../sinq.js')();
+require('../index.js')();
 
 describe('Array', function() {
   describe('#where()', function() {
@@ -76,5 +76,23 @@ describe('Array', function() {
 
     it('Last animal should be an Fish', () => assert.equal('Fish', result.first().type));
     it('Last animal should be an Alien', () => assert.equal('Alien', result.last().type));
+  });
+
+  describe('#contains()', function() {
+
+    var arr = [];
+    arr.push({ id: 9,  name: 'Shark',   type: 3 });
+    arr.push({ id: 1,  name: 'Dog',     type: 1 });
+    arr.push({ id: 8,  name: 'Catfish', type: 3 });
+    arr.push({ id: 2,  name: 'Cat',     type: 1 });
+    arr.push({ id: 4,  name: 'Chicken', type: 2 });
+    arr.push({ id: 3,  name: 'Lion',    type: 1 });
+    arr.push({ id: 5,  name: 'Sparrow', type: 2 });
+    arr.push({ id: 6,  name: 'Salmon',  type: 3 });
+    arr.push({ id: 7,  name: 'Tuna',    type: 3 });
+    arr.push({ id: 7,  name: 'Thusnk',  type: 14 });
+
+    it('Should contain its own item', () => assert.equal(true, arr.contains(arr[6])));
+    it('Shouldn\'t contain an independent object', () => assert.equal(false, arr.contains({ id: 5,  name: 'Sparrow', type: 2 })));
   });
 });

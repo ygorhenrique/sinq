@@ -6,90 +6,60 @@
  * @license MIT
  */
 
-module.exports = function(){
-  if (!Array.prototype.where){
-    Array.prototype.where = function(fn) {
+module.exports = {
+  where: function(fn) {
+    var arr = []
 
-      var arr = []
+    this.forEach(m => {
 
-      this.forEach(m => {
+      if(fn(m)){
+        arr.push(m)
+      }
+    })
 
-        if(fn(m)){
-          arr.push(m)
-        }
-      })
+    return arr
+  },
 
-      return arr
-   }
-  }
+  groupBy: function(fn) {
+    var groupedItems = []
+    groupedItems.keys = []
 
-  if (!Array.prototype.groupBy){
-    Array.prototype.groupBy = function(fn) {
+    this.forEach(m => {
 
-      var groupedItems = []
-      groupedItems.keys = []
+      var groupIndex = fn(m)
 
-      this.forEach(m => {
+      if(groupedItems.keys.indexOf(groupIndex) == -1) {
+        groupedItems[groupIndex] = {}
+        groupedItems[groupIndex] = []
+        groupedItems.keys.push(groupIndex)
+      }
 
-        var groupIndex = fn(m)
+      groupedItems[groupIndex].push(m)
+    })
 
-        if(groupedItems.keys.indexOf(groupIndex) == -1) {
-          groupedItems[groupIndex] = {}
-          groupedItems[groupIndex] = []
-          groupedItems.keys.push(groupIndex)
-        }
+    return groupedItems
+  },
 
-        groupedItems[groupIndex].push(m)
-      })
+  select: function(fn) {
 
-      return groupedItems
-   }
-  }
+    var arr = []
 
- if (!Array.prototype.orderBy){
-   Array.prototype.orderBy = function(key) {
+    this.forEach(m => {
+       arr.push(fn(m))
+    })
 
-     return this.sort(function (a, b){ return a[key] > b[key] })
-  }
- }
+    return arr
+  },
 
- if (!Array.prototype.orderByDescending){
-   Array.prototype.orderByDescending = function(key) {
+  orderBy: function(key) { return this.sort(function (a, b){ return a[key] > b[key] }) },
 
-     return this.sort(function (a, b){ return a[key] < b[key] })
-  }
- }
+  orderByDescending: function(key) { return this.sort(function (a, b){ return a[key] < b[key] }) },
 
- if (!Array.prototype.select){
-   Array.prototype.select = function(fn) {
+  first: function() { return this[0] },
 
-     var arr = []
+  last: function() { return this[this.length-1] },
 
-     this.forEach(m => {
-        arr.push(fn(m))
-     })
+  all: function(fn) { return this.every(fn) },
 
-     return arr
-  }
- }
-
- if (!Array.prototype.first){
-   Array.prototype.first = function() {
-
-     return this[0]
-  }
- }
-
- if (!Array.prototype.last){
-   Array.prototype.last = function() {
-
-     return this[this.length-1]
-  }
- }
-
- if (!Array.prototype.all){
-   Array.prototype.all = function(fn) {
-     return this.every(fn);
-  }
- }
+  contains: function(item) { return this.indexOf(item) != -1 }
 }
