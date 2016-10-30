@@ -6,7 +6,7 @@
  * @license MIT
  */
 
-var sinq = require('./sinq.js')
+var sinq = require('./lib/sinq.js')
 
 module.exports = function(){
   if(!Array.prototype.where){
