@@ -2,7 +2,7 @@
   "name": "sinqjs",
   "version": "1.0.0",
   "description": "Script Integrated Query Language",
-  "main": "sinq.js",
+  "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
@@ -18,7 +18,7 @@
     "ecmascript"
   ],
   "author": "Ygor Henrique S. Randes <rick.ygor@live.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ygorhenrique/sinq/issues"
   },
