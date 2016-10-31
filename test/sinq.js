@@ -102,6 +102,14 @@ describe('Array', function() {
       expected = [0, 1, 2, 3, 4]
 
     it('should contain 5 items', () => assert.equal(true, arr.length == 5))
-    it('elements should be in sequence', () => expected.forEach((m) => assert.equal(arr[m], m)))
+    it('elements should be in sequence', () => expected.forEach((m) => assert.equal(m, arr[m])))
+  })
+
+  describe('#repeat()', function() {
+
+    var arr = [].repeat('itemToBeRepeated', 10)
+    console.log(arr)
+    it('should contain 10 items', () => assert.equal(true, arr.length == 10))
+    it('elements should be repeated', () => arr.forEach((m) => assert.equal('itemToBeRepeated', m)))
   })
 })

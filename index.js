@@ -48,4 +48,8 @@ module.exports = function(){
   if(!Array.prototype.range){
     Array.prototype.range = sinq.range
   }
+
+  if(!Array.prototype.repeat){
+    Array.prototype.repeat = sinq.repeat
+  }
 }
