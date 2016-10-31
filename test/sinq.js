@@ -108,7 +108,7 @@ describe('Array', function() {
   describe('#repeat()', function() {
 
     var arr = [].repeat('itemToBeRepeated', 10)
-    console.log(arr)
+    
     it('should contain 10 items', () => assert.equal(true, arr.length == 10))
     it('elements should be repeated', () => arr.forEach((m) => assert.equal('itemToBeRepeated', m)))
   })
