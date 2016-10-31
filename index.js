@@ -44,4 +44,8 @@ module.exports = function(){
   if(!Array.prototype.contains){
     Array.prototype.contains = sinq.contains
   }
+
+  if(!Array.prototype.range){
+    Array.prototype.range = sinq.range
+  }
 }
