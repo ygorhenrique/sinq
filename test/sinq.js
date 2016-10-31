@@ -74,8 +74,8 @@ describe('Array', function() {
       }
     })
 
-    it('Last animal should be an Fish', () => assert.equal('Fish', result.first().type))
-    it('Last animal should be an Alien', () => assert.equal('Alien', result.last().type))
+    it('first animal should be an Fish', () => assert.equal('Fish', result.first().type))
+    it('last animal should be an Alien', () => assert.equal('Alien', result.last().type))
   });
 
   describe('#contains()', function() {
@@ -92,8 +92,8 @@ describe('Array', function() {
     arr.push({ id: 7,  name: 'Tuna',    type: 3 })
     arr.push({ id: 7,  name: 'Thusnk',  type: 14 })
 
-    it('Should contain its own item', () => assert.equal(true, arr.contains(arr[6])))
-    it('Shouldn\'t contain an independent object', () => assert.equal(false, arr.contains({ id: 5,  name: 'Sparrow', type: 2 })))
+    it('should contain its own item', () => assert.equal(true, arr.contains(arr[6])))
+    it('shouldn\'t contain an independent object', () => assert.equal(false, arr.contains({ id: 5,  name: 'Sparrow', type: 2 })))
   });
 
   describe('#range()', function() {
@@ -101,7 +101,7 @@ describe('Array', function() {
     var arr = [].range(5),
       expected = [0, 1, 2, 3, 4]
 
-    it('Should contain 5 items', () => assert.equal(true, arr.length == 5))
-    it('Elements should be in sequence', () => expected.forEach((m) => assert.equal(arr[m], m)))
+    it('should contain 5 items', () => assert.equal(true, arr.length == 5))
+    it('elements should be in sequence', () => expected.forEach((m) => assert.equal(arr[m], m)))
   })
 })
