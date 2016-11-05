@@ -52,4 +52,20 @@ module.exports = function(){
   if(!Array.prototype.repeat){
     Array.prototype.repeat = sinq.repeat
   }
+
+  if(!Array.prototype.distinct){
+    Array.prototype.distinct = sinq.distinct
+  }
+
+  if(!Array.prototype.intersect){
+    Array.prototype.intersect = sinq.intersect
+  }
+
+  if(!Array.prototype.union){
+    Array.prototype.union = sinq.union
+  }
+
+  if(!Array.prototype.except){
+    Array.prototype.except = sinq.except
+  }
 }
